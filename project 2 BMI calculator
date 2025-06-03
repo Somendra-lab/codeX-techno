@@ -1,0 +1,29 @@
+CODE Beginners
+print("___________________________BMI-CALCULATOR_______________________")
+#Function to calculate bmi
+def BMI(weight,height):
+    bmi=weight/(height*height)
+    return round(bmi,2)
+#Using try-except for error handleing
+try:
+    weight=float(input("Enter your weight in kilograms (Kg)  :"))
+    height=float(input("Enter your height in meter (m) :"))
+    if weight==0 and height==0:
+        print("Weight and height must be equal to positive ")
+    v=BMI(weight,height)
+except ValueError:
+    print("please enter valid numerical values")
+#BMI range chart comparing
+if v<=18.5:
+    print("BMI=",v,"Underweight")
+elif v>18.5 and v<=24.9:
+    print("BMI=",v,"Normal weight")
+elif  v>=25 and v<=29.9:
+    print("BMI=",v,"Over weight")
+elif  v>30 and v<=34.9:
+    print("BMI=",v,"Obese")
+elif  v>35:
+    print("BMI=",v,"Morbid Obesity")
+else:
+    print("Go Back enter valid details")
+    
