@@ -1,0 +1,37 @@
+import random as R
+
+print('''_______Welcome to the Random Password generator________''')
+
+def Generator():
+    try:
+        x = int(input("Enter Password length: "))
+        y = int(input("Enter your password choice\nNumbers=1\nLetters=2\nSymbols=3\nMixed=4\nEnter: "))
+        
+        numbers = list('0123456789')
+        letters = list('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
+        symbols = list('!@#$%^&*()-_=+[]{}|\\:;"\'<>,.?/`~')
+
+        if y == 1:
+            pw = R.choices(numbers, k=x)
+        elif y == 2:
+            pw = R.choices(letters, k=x)
+        elif y == 3:
+            pw = R.choices(symbols, k=x)
+        elif y == 4:
+            all_chars = numbers + letters + symbols
+            pw = R.choices(all_chars, k=x)
+            R.shuffle(pw)
+        else:
+            print("Invalid Input! Please enter 1 to 4.")
+            return []
+    except ValueError:
+        print("Invalid Input! Enter only numbers.")
+        return []
+
+    return pw
+
+Password = Generator()
+
+if Password:
+    print("Generated Password: ", end="")
+    print("".join(Password))
